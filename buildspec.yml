@@ -17,6 +17,7 @@ phases:
       - sam build
       - echo built packages to target folder
       - cp -rp .aws-sam/build/HelloWorldFunction/* hello_world/
+      - ls -l
       - sam package --template-file template.yaml
         --output-template-file packaged.yaml
         --s3-bucket $S3_BUCKET
