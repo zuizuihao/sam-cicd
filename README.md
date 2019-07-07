@@ -23,6 +23,13 @@ This is a sample template for sam-app - Below is a brief explanation of what we 
 * [Python 3 installed](https://www.python.org/downloads/) & [Pip 3 installed](https://bootstrap.pypa.io/get-pip.py)
 * [Docker installed](https://www.docker.com/community-edition)
 * GCC is already installed when compiling sam-cli
+* [virtualenv installed](https://virtualenv.pypa.io/en/stable/installation/)
+```
+$ pip3 install virtualenv --user
+# In your sam project folder, execute below commands
+$ virtualenv venv
+$ source venv/bin/activate
+```
 
 ## Setup process
 
