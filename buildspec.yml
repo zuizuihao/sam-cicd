@@ -16,10 +16,12 @@ phases:
       - echo building packages, including dependencies...
       - sam build
       - echo built packages to target folder
+      - cp -rp .aws-sam/build/HelloWorldFunction/* hello_world/
       - sam package --template-file template.yaml
         --output-template-file packaged.yaml
         --s3-bucket $S3_BUCKET
         --region $REGION
+        --debug
 
   post_build:
     commands:
