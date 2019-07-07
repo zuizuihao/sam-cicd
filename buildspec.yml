@@ -32,3 +32,4 @@ artifacts:
   type: zip
   files:
     - packaged.yaml
+    - cfn-template-config.json
