@@ -20,8 +20,9 @@ This is a sample template for sam-app - Below is a brief explanation of what we 
 ## Requirements
 
 * AWS CLI already configured with Administrator permission
-* [Python 3 installed](https://www.python.org/downloads/)
+* [Python 3 installed](https://www.python.org/downloads/) & [Pip 3 installed](https://bootstrap.pypa.io/get-pip.py)
 * [Docker installed](https://www.docker.com/community-edition)
+* GCC is already installed when compiling sam-cli
 
 ## Setup process
 
