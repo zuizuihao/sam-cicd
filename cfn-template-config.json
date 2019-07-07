@@ -1,0 +1,19 @@
+{
+    "Parameters" : {
+      "Env" : "staging",
+      "DeploymentPreference": "Linear10PercentEvery1Minute"
+    },
+    "Tags" : {
+      "Department" : "aftership"
+    },
+    "StackPolicy" : {
+      "Statement" : [
+        {
+          "Effect" : "Allow",
+          "Action" : "Update:*",
+          "Principal": "*",
+          "Resource" : "*"
+        }
+      ]
+    }
+  }
