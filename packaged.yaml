@@ -1,4 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
 Description: 'sam-app
 
   Sample SAM Template for sam-app
@@ -7,6 +8,49 @@ Description: 'sam-app
 Globals:
   Function:
     Timeout: 3
+Parameters:
+  Env:
+    Type: String
+    Default: prod
+    AllowedValues:
+    - prod
+    - staging
+    Description: Define prod/staging by Parameters
+  DeploymentPreference:
+    Type: String
+    Default: AllAtOnce
+    AllowedValues:
+    - Canary10Percent5Minutes
+    - Canary10Percent10Minutes
+    - Canary10Percent15Minutes
+    - Canary10Percent30Minutes
+    - Linear10PercentEvery1Minute
+    - Linear10PercentEvery2Minute
+    - Linear10PercentEvery3Minute
+    - Linear10PercentEvery10Minute
+    - AllAtOnce
+    Description: https://docs.aws.amazon.com/lambda/latest/dg/automating-updates-to-serverless-apps.html
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://aws-nikofeng-us-west-2-devops-bucket/72957a92a6179941b32e92ab63a48151
+      Handler: app.lambda_handler
+      Runtime: python3.7
+      Tracing: Active
+      FunctionName:
+        Fn::Sub: sam-app-HelloWorldFunction-${Env}
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: get
+      AutoPublishAlias: live
+      DeploymentPreference:
+        Type:
+          Fn::Sub: ${DeploymentPreference}
+        Alarms: null
 Outputs:
   HelloWorldApi:
     Description: API Gateway endpoint URL for Prod stage for Hello World function
@@ -24,17 +68,3 @@ Outputs:
       Fn::GetAtt:
       - HelloWorldFunctionRole
       - Arn
-Resources:
-  HelloWorldFunction:
-    Properties:
-      CodeUri: s3://hzchen-private-ore/0fc7a700604fe6095153288a5c2bcca5
-      Events:
-        HelloWorld:
-          Properties:
-            Method: get
-            Path: /hello
-          Type: Api
-      Handler: app.lambda_handler
-      Runtime: python3.7
-    Type: AWS::Serverless::Function
-Transform: AWS::Serverless-2016-10-31

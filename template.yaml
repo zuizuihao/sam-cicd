@@ -26,6 +26,7 @@ Parameters:
     Default: AllAtOnce
     AllowedValues:
       - Canary50Percent1Minutes
+      - Canary50Percent5Minutes
       - Canary10Percent5Minutes
       - Canary10Percent10Minutes
       - Canary10Percent15Minutes
