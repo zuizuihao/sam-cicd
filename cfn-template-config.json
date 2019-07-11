@@ -1,7 +1,7 @@
 {
     "Parameters" : {
       "Env" : "staging",
-      "DeploymentPreference": "Canary50Percent5Minutes"
+      "DeploymentPreference": "Canary20Percent3Minutes"
     },
     "Tags" : {
       "Department" : "aftership"

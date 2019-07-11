@@ -25,6 +25,7 @@ Parameters:
     Type: String
     Default: AllAtOnce
     AllowedValues:
+      - Canary20Percent3Minutes
       - Canary50Percent1Minutes
       - Canary50Percent5Minutes
       - Canary10Percent5Minutes
