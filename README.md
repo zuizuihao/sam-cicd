@@ -18,14 +18,35 @@ This is a sample template for sam-app - Below is a brief explanation of what we 
 ```
 
 ## Requirements
+*Warning* If your environment is launched by AWS Cloud9, please make sure to uninstall the aws-sam-cli first and install the latest version afterwards as the lastest version depends on Python v3.7+
+```
+$ pip uninstall aws-sam-cli
+```
 
 * AWS CLI already configured with Administrator permission
 * [Python 3 installed](https://www.python.org/downloads/) & [Pip 3 installed](https://bootstrap.pypa.io/get-pip.py)
+    ```
+    $ wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
+    
+    $ tar zxvf Python-3.7.4.tgz && cd Python-3.7.4
+    
+    $ ./configure --enable-optimizations
+    
+    $ make -j8 build_all
+    
+    $ sudo make -j8 altinstall
+    
+    $ sudo cp /usr/local/bin/python3.7 /usr/bin/
+    
+    $ sudo cp /usr/local/bin/pip3.7 /usr/bin/
+    
+    # change alias python and pip to point to python3.7 and pip3.7 respectively
+    $ vi ~/.bashrc
+    
+    $ source ~/.bashrc
+    ```
+* [SAM CLI installed](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-linux.html)
 * [Docker installed](https://www.docker.com/community-edition)
-* GCC is already installed when compiling sam-cli
-    ```
-    $ sudo yum install gcc -y
-    ```
 * [virtualenv installed](https://virtualenv.pypa.io/en/stable/installation/)
     ```
     $ pip3 install virtualenv --user
